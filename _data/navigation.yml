@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: Blog
+  link: /blog.html
+- name: Docs
+  link: https://overbaard.github.io/overbaard/
+- name: GitHub
+  link: https://github.com/overbaard/overbaard
+- name: Demo
+  link: https://overbaard.github.io/demo
+- name: Releases
+  link: https://github.com/overbaard/overbaard/releases
