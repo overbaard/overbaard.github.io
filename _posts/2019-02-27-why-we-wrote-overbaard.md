@@ -1,9 +1,9 @@
 ---
 layout: post
-author: <a href="https://github.com/kabir">kabir</a>
+author: <a href="https://github.com/kabir">Kabir Khan</a>
 ---
 A few years ago we decided on the Red Hat JBoss Enterprise Application Platform team to 'go Agile'. I volunteered to
-help with our process for tracking RFEs and to look into tooling. As we use Jira for our issue tracker we needed 
+help with our process for tracking feature requests and to look into tooling. As we use Jira for our issue tracker we needed 
 something that could work with Jira.
 
 As a bit of background, we are the biggest middleware product at Red Hat. There are 50+ major components/areas of 
