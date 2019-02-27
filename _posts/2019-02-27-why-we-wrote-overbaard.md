@@ -8,17 +8,17 @@ something that could work with Jira.
 
 As a bit of background, we are the biggest middleware product at Red Hat. There are 50+ major components/areas of 
 responsibility. The number of
-engineers on the core team varies but it typically around 50+ people. In addition we consume numerous other large and 
+engineers on the core team varies but is typically around 50+ people. In addition we consume numerous other large and 
 successful JBoss projects (e.g Hibernate, RestEasy), as well as other external projects (Apache ActiveMQ, Apache CXF).
 So as you can imagine there are a lot of people involved, and that is just from the engineering side! Then of course
-every new feature needs testing by our QE team, it needs to be documented by the docs team. Add to this that we are 
-spread throughout the world, spread over all timezones and both hemispheres.
+every new feature needs testing by our QE team, and needs to be documented by the docs team. Add to this that we are 
+spread throughout the world, over all timezones and both hemispheres.
 
 Also, as people have different areas of expertise in our application server, it became apparent that the normal daily
 standup meeting setup wouldn't really work for us. Due to our size, most topics during these standup meetings would
-be irrelevant to most people on such a hypothetical call at any time, so it would be unfair to force people in unlucky
-timezones out of bed to join. So, was key to us to come up with a process that could handle communication between all 
-these people efficiently.
+be irrelevant to most people on such a hypothetical call at any time, meaning it would be very unfair to force people in unlucky
+timezones out of bed to join these calls on a regular basis. So, was key to us to come up with a process that could 
+handle communication between all these people efficiently.
 
 <h2>Initial Agile attempt</h2>
 In our first attempt of the process, we came up with a sequential workflow. One of the major things we came up with 
@@ -30,8 +30,8 @@ following high-level categories:
     <li><b>Analysis</b> - This was a handful of states for Engineering to do analysis, QE to do their analysis and a 
     few states inbetween</li> 
     <li><b>Design/POC</b> - Experimental work</li>
-    <li><b>Development</b> - As EAP is based on the open source <a href="http://wildfly.org">WildFly</a> application 
-    server, we first needed to do the work in the wildfly branch, get it reviewed, merged and then backported to the 
+    <li><b>Development</b> - As EAP is based on the open source <a href="http://wildfly.org" target="_blank">WildFly</a> 
+    application server, we first needed to do the work in the WildFly branch, get it reviewed, merged and then backported to the 
     EAP product branch. For the product branch the reviewing and merging needed to happen again. TL;DR: We ended up
     with a lot of states for this.</li>
     <li><b>QE</b> - States for QE to implement and run their tests to verify the feature.</li>
@@ -56,20 +56,20 @@ scrollable or something?!?
 
 <img src="/assets/images/posts/2019-02-27-why-we-wrote-overbaard/jira-agile.png"/>
 
-We experimented with splitting the board into a four separate boards, each containing a sub-set of the states. This 
+We experimented with splitting the board into four separate boards, each containing a sub-set of the states. This 
 worked up to a point, but wasn't really workable because of what I mention in the next section. 
 
 <h3>Maintenance nightmare</h3>
 To make the board more useful for each team, we experimented with adding filters and swimlanes for a few things. Take 
 components for example, of which we have 50+. To set up a board that does swimlanes by components, you need to define
 a query along the lines of `component=XXX` for every component. And after the investigation in the previous section 
-we don't have one 'base' board, we have 4 to fit the states onto the screen. So we need to copy the 4 base boards into
+we don't have one 'base' board, we  now have 4 boards to fit the states onto the screen. So we need to copy the 4 base boards into
 ones for swimlane by component and enter the same 50 JQL queries in each.
 
 Still, the set of components is quite stable, and we don't add or remove them that often. We do however use labels 
 **a lot** for ad-hoc communication about what is important. So we would need to identify all the labels that are 
 important, create copies of the 4 boards and then add JQL to pick out the issues with each label. Then we would have to 
-repeat the exercise once someone decided that 'My-Important-Label' also deserved a filter/swimlane.
+repeat the exercise once someone decides that 'My-Important-Label' also deserved a filter/swimlane.
 
 I've mentioned swimlanes so far, similarly to add filters for components and labels you need to enter a JQL query for 
 each for each copy of the board. 
@@ -80,7 +80,7 @@ Fix Version, Type, Priority, and whatever custom fields we are using.
 
 
 <h2>External tools</h2>
-Despite Jira Agile's problems, it has a nice feature that the data is the issue. Other tools seemed too 'board-centric'
+Despite Jira Agile's problems, it has a nice feature in that the data is the issue. Other tools seemed too 'board-centric'
 so that if you created a board the issue 'belonged' to that, and being able to change the view wasn't really possible
 (e.g. to go from a plain board to one using swimlanes by component). I evaluated a lot of tools, and might have missed
 some, but I didn't really find what we were after.
@@ -92,8 +92,8 @@ several cases.
 After some discussion we decided to investigate implementing a read-only board that could display 
 the data better than what we found. The requirements were:
 * To properly display a lot of states, we did this via:
-** Horizontal scrolling
-** Collapsible headers
+    * Horizontal scrolling
+    * Collapsible headers
 * To avoid configuration to provide filters and swimlanes. Instead we inspect the data that exists in the issues to 
 provide the options for filters/swimlanes
 * Do as much work on the client as possible to make it fast. All filtering and other massaging of the view happens
@@ -109,7 +109,7 @@ take a look at the below animation:
 </video>
   
 
-Thanks for reading!
+Thanks for reading, and follow the links at the top of the page for more information!
 
 
 
