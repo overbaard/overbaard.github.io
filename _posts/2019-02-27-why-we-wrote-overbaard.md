@@ -57,7 +57,7 @@ scrollable or something?!?
 <img src="/assets/images/posts/2019-02-27-why-we-wrote-overbaard/jira-agile.png"/>
 
 We experimented with splitting the board into a four separate boards, each containing a sub-set of the states. This 
-worked up to a point, but wasn't really workable because of what I mention in the next section 
+worked up to a point, but wasn't really workable because of what I mention in the next section. 
 
 <h3>Maintenance nightmare</h3>
 To make the board more useful for each team, we experimented with adding filters and swimlanes for a few things. Take 
