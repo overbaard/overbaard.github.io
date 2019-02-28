@@ -89,8 +89,8 @@ Also, for the tools that promised to integrate with Jira, the integration didn't
 several cases.
 
 <h2>Introducing Overbård</h2>
-After some discussion we decided to investigate implementing a read-only board that could display 
-the data better than what we found. The requirements were:
+After some discussion we decided to investigate implementing a read-only board (current Overbård has a lot more
+functionality!) that could display the data better than what we found in other tools. The requirements were:
 * To properly display a lot of states, we did this via:
     * Horizontal scrolling
     * Collapsible headers
