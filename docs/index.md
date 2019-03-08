@@ -9,10 +9,11 @@ title: Documentation Home
 </div>
 
 
+<!--
 ```
 'Bård' is a Norwegian name pronounced 'board' (alternative spelling: 'baard').
 ```
-
+-->
 Overbård is a lightning fast Kanban board integrating with Jira. It is shipped as a Jira add-on, and was written to
 address some of Jira Software's short-comings when it comes to how it displays the boards. Effectively this means:
 * horizontally scrollable boards, with collapsible columns.
