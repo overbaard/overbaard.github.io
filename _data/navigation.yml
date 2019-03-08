@@ -3,7 +3,7 @@
 - name: Blog
   link: /blog.html
 - name: Docs
-  link: https://overbaard.github.io/overbaard/
+  link: /docs/overbaard
 - name: GitHub
   link: https://github.com/overbaard/overbaard
 - name: Demo
