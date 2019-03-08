@@ -27,7 +27,7 @@ Apart from the configuration, all the data and permissions are driven by your Ji
 
 
 Check out our read-only <a href="https://overbaard.github.io/demo" target="_blank">demo</a> to get a feel for how it works before 
-installing it into your Jira, and take a look at our <a href="https://overbaard.github.io/overbaard" target="_blank">docs</a> to 
+installing it into your Jira, and take a look at our <a href="https://overbaard.github.io/docs/index.html">docs</a> to 
 discover more of our innovative features. When you are ready to install it in your Jira instance, ask your Jira Administrator to 
 <a href="https://github.com/overbaard/overbaard/releases" target="_blank">download</a> and install. We release frequently, so keep 
 an eye out in order to always have the latest and greatest version. Once set up, any project admin can configure boards
