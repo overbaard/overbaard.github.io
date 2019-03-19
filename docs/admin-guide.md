@@ -388,8 +388,11 @@ However, we can further extend the functionality of Overbård to do this for cus
 
 * `version` - For my project we have a custom field called `Target Release`. It is a custom field which allows selection
 of one release. The `version` custom field type is suitable for such a custom field. 
-* `user` - For EAP we have a custom fields called `Tester` and `Documenter`. In Jira these are `User Picker (single user)` 
+* `user` - For my project we have a custom fields called `Tester` and `Documenter`. In Jira these are `User Picker (single user)` 
 custom fields. The `user` custom field type is suitable for such a custom field. 
+* `single-select` - For my project we have a custom field called `Tested By` which has some pre-defined entries for the various 
+options. In Jira these are `Select List (single choice)` custom fields. The `single-select` custom field type is suitable 
+for such a custom field. 
 
 If you want support for other types of custom fields, open an [issue](https://github.com/overbaard/overbaard/issues)
 and we can discuss the viability.
