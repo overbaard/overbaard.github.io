@@ -955,7 +955,7 @@ deleting it. To help deal with these situations, you can access the configuratio
 UI, but you can view the REST URLs in the browser (just make sure you are logged into Jira), as this is hopefully not
 something you will need to use very often!
 
-The entry point URL is `http://my.jira.org/rest/overbaard/1.0/board-config-history` (In the below examples ``http://my.jira.org/` is
+The entry point URL is `http://my.jira.org/rest/overbaard/1.0/board-config-history` (In the below examples `http://my.jira.org/` is
 `http://localhost:2990/jira` as I have taken them from running the SDK locally).
 
 When I go to that URL I get something like:
