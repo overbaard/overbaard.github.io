@@ -945,3 +945,119 @@ The health panel will list issues that there is a problem with, and it will be d
 * an issue loaded which has a state not configured in the project or the relevant overrides `state-links` map.
 
 To get rid of the health panel warning, go in and add the issue type, priority or the missing state.
+
+<a name="configuration-histor"></a>
+# 13 Configuration History
+
+Generally the configuration validation will pick up on bad configurations before it is stored to the database. However,
+accidents can still happen. You might change your configuration into something not working, or you might end up accidentally
+deleting it. To help deal with these situations, you can access the configuration history. It is not currently exposed in the 
+UI, but you can view the REST URLs in the browser (just make sure you are logged into Jira), as this is hopefully not
+something you will need to use very often!
+
+The entry point URL is `http://my.jira.org/rest/overbaard/1.0/board-config-history` (In the below examples ``http://my.jira.org/` is
+`http://localhost:2990/jira` as I have taken them from running the SDK locally).
+
+When I go to that URL I get something like:
+```
+{
+    "next" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history?from=16",
+    "entries" : [
+        {
+            "id" : 20,
+            "code" : "TSTx",
+            "board_id" : 4,
+            "changed_by" : "admin",
+            "change_type" : "Updated",
+            "time" : "2019-04-18T15:56+0100",
+            "url" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/20"
+        },
+        {
+            "id" : 19,
+            "code" : "Tmp",
+            "board_id" : 28,
+            "changed_by" : "admin",
+            "change_type" : "Deleted",
+            "time" : "2019-04-18T15:45+0100",
+            "url" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/19"
+        },
+        {
+            "id" : 17,
+            "code" : "Tmp",
+            "board_id" : 28,
+            "changed_by" : "admin",
+            "change_type" : "Created",
+            "time" : "2019-04-18T15:36+0100",
+            "url" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/17"
+        }
+        ...
+```
+You can also specify the board id in the `board_id` query parameter, i.e. 
+`http://localhost:2990/jira/rest/overbaard/1.0/board-config-history?board_id=4` narrows down the results to each one
+```
+{
+    "next" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history?from=8&board_id=4",
+    "entries" : [
+        {
+            "id" : 20,
+            "code" : "TSTx",
+            "board_id" : 4,
+            "changed_by" : "admin",
+            "change_type" : "Updated",
+            "time" : "2019-04-18T15:56+0100",
+            "url" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/20"
+        },
+        {
+            "id" : 15,
+            "code" : "TST",
+            "board_id" : 4,
+            "changed_by" : "admin",
+            "change_type" : "Updated",
+            "time" : "2019-04-17T22:13+0100",
+            "url" : "http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/15"
+        },
+        ...
+```
+We use the `board_id` rather than its `code` for this, as when you update a board you can change its `code`, while the 
+`board_id` is its primary key in the backing database. The number of results are limited (currently hardcoded to 50),
+with basic paging via the url in the `next` field.
+
+For each history entry we have the following fields:
+* `id` - the primary key of the history entry
+* `code` - the current code of the board
+* `board_id` - the primary key of the board itself
+* `changed_by` - the Jira key of the user who made the change
+* `change_type` - `Created`, `Updated` or `Deleted`
+* `time` - The date and time the board config was changed
+* `url` - a url to get more detail about the change. We will look more at this in the next sub-section
+
+## Config history detail
+
+Going into `http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/20` you will be presented with something 
+like: 
+```
+{
+    "id" : 20,
+    "name" : "Test board",
+    "code" : "TSTx",
+    "owner" : "admin",
+    "board_id" : 4,
+    "changed_by" : "admin",
+    "change_type" : "Updated",
+    "time" : "2019-04-18T15:56+0100",
+    "config" : {
+        "name" : "Test board",
+        "code" : "TSTx",
+        "states" : [
+            {
+```
+All the fields here have the same meaning as described above. We have some additional fields which have the following 
+meanings:
+* `name` - the name of the board
+* `owner` - the 'owner' of the board (really the last person to update the config)
+* `config` - a copy of the configuration entered in the board configuration page. When the `change_type` is either 
+`Created` or `Updated`, it contains the config that was saved. When the `change_type` is `Deleted`, this field contains
+the configuration as it was before the entry was deleted.
+
+ 
+
