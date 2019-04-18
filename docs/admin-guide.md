@@ -946,7 +946,7 @@ The health panel will list issues that there is a problem with, and it will be d
 
 To get rid of the health panel warning, go in and add the issue type, priority or the missing state.
 
-<a name="configuration-histor"></a>
+<a name="configuration-history"></a>
 # 13 Configuration History
 
 Generally the configuration validation will pick up on bad configurations before it is stored to the database. However,
