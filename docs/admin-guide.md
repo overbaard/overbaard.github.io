@@ -1031,7 +1031,7 @@ For each history entry we have the following fields:
 * `time` - The date and time the board config was changed
 * `url` - a url to get more detail about the change. We will look more at this in the next sub-section
 
-## Config history detail
+## 13.1 Config history detail
 
 Going into `http://localhost:2990/jira/rest/overbaard/1.0/board-config-history/20` you will be presented with something 
 like: 
