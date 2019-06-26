@@ -265,3 +265,25 @@ Some sample full commands:
 * `atlas-package -Dob.jira8` - This builds the Jira 8 version of the plugin, without building the UI (simply using what is already in the `webapp/target` directory as input to the plugin build)
 * `atlas-package -Dob.jira8 -Dob.jira7 -Dob.ui` - This builds both the Jira 7 and the Jira 8 versions of the plugin, and triggers a production environment build of the web application to be bundled in the plugin.
 
+### 4.3 Doing a release
+The packaging of the application as shown above works fine for deploying in the locally running SDK. But it seems that it is more strict when we need to deploy the plugin in a proper Jira instance. I found that the safest way to do this is to start from scratch. The steps to do this are (hopping a bit between two terminals):
+
+**Terminal 1:**
+Check out the tag to release
+`$atlas-clean -Dob.jira8 -Dob.jira7`
+`atlas-mvn install`
+`atlas-package -Dob.ui.deps -Dob.ui -Dob.jira7 -Dob.jira8`
+`atlas-debug -pl jira/plugin/jira7 -Dob.jira7`
+Once the server has started, restore from a backup and download Jira Software if needed. The backup should contain the licenses to enable everything.
+
+**Terminal 2:**
+`atlas-package -Dob.ui.deps -Dob.ui -Dob.jira7 -Dob.jira8`
+
+**Terminal 1:**
+Make sure the plugin deploys fine, and that you are able to use it in the browser. Grab the Jira7 jar and repeat the steps for Jira 8.
+
+**Final verification**
+Make sure that both the Jira 7 and Jira 8 versions of the plugin work properly in standalone Jira 7 and 8 instances.  You can download these from https://www.atlassian.com/software/jira/download?_ga=2.149634613.283978762.1561365767-1681422928.1520267962 (Or google 'Download Jira Software Server').
+Once all set up, you can restore data in these from a backup.
+
+Then deploy the correct plugin version into each, and make sure it works.
