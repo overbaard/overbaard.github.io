@@ -150,7 +150,7 @@ Once Overbård has loaded, click the hamburger icon in the top left and choose `
 Set the `Rank`, `Epic Link` and `Epic Name` IDs in the `Custom Field IDs` section on the bottom of the page, using the values you noted in the last step.
 
 Next, enter the contents of
-[https://github.com/overbaard/overbaard/blob/master/src/setup/board.json](https://github.com/overbaard/overbaard/blob/master/src/setup/board.json)
+[https://github.com/overbaard/overbaard/blob/master/jira/plugin/core/src/setup/board.json](https://github.com/overbaard/overbaard/blob/master/jira/plugin/core/src/setup/board.json)
 into the `Create a new board` text area. Click on the hamburger icon in the top left again and go to `Boards`.
 Select the `Test board`, and you should see the board fully populated.
 
