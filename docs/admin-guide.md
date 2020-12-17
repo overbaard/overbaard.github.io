@@ -77,6 +77,12 @@ The full JSON config can be found at
 [simple.json](https://overbaard.github.io/overbaard/assets/examples/simple.json). Let's look at it in details,
 and describe the main sections.
 
+Note that to set up (or edit) a board you need to either:
+
+* Be a Jira Administrator
+* Be a member of a group called 'Overbaard Adminstrators'
+* Be a project adminstrator for *all* projects contained in the board configuration
+
 ## 4.1 Global config
 
 ```
