@@ -20,7 +20,7 @@ Since Angular 2 is used for the display logic, it is worth looking at the quicks
 It is set up to read the source files to the checkout *outside* of the docker container. Similarly, the
 output is written to the target/ folders on your local machine, just as if you had everything set up
 locally. Ports are mapped so you can access the jira server, and the Angular
-development and test servers. Instructions to run the image are at https://github.com/overbaard/overbaard/tree/master/docker
+development and test servers. Instructions to run the image are at [https://github.com/overbaard/overbaard/tree/master/docker](https://github.com/overbaard/overbaard/tree/master/docker)
 
 
 ## 1.1 Atlassian SDK
