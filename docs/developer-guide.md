@@ -16,6 +16,13 @@ This initial setup of your development environment will take about 10 minutes.
 Since Angular 2 is used for the display logic, it is worth looking at the quickstart at
 [https://angular.io](https://angular.io).
 
+**Note:** Since it can become a bit fiddly to set up the environment, there is a docker image containing it. 
+It is set up to read the source files to the checkout *outside* of the docker container. Similarly, the
+output is written to the target/ folders on your local machine, just as if you had everything set up
+locally. Ports are mapped so you can access the jira server, and the Angular
+development and test servers. Instructions to run the image are at https://github.com/overbaard/overbaard/tree/master/docker
+
+
 ## 1.1 Atlassian SDK
 
 The Atlassian SDK provides the APIs used for developing the plugin. It has tools for packaging the plugin to be
